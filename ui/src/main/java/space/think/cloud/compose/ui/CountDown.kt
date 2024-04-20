@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -172,13 +173,17 @@ fun CountDown(
 @Preview
 @Composable
 fun Preview() {
+
+    var ok by remember {
+        mutableStateOf(false)
+    }
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
         CountDown(
             modifier = Modifier.size(100.dp),
-            initialValue = 50,
+            initialValue = 10,
             primaryColor = Color.Blue,
             secondaryColor = Color.Yellow,
             circleColor = Color.Cyan,
@@ -186,6 +191,11 @@ fun Preview() {
             fontSize = 25
 
         ) {
+            ok = true
+        }
+
+        if (ok){
+            Text(text = "asdfasdfasdfa")
         }
     }
 }
